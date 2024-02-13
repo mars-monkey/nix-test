@@ -10,6 +10,7 @@
     
     shellAliases = {
       apt = "nala";
+      bt = "bluetootchtl power on %% bluetoothctl connect 60:C5:E6:13:7A:63";
       cl = "clear";
       gp = "git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
       hcf = "vim ~/nix/home.nix";
