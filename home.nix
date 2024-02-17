@@ -69,6 +69,7 @@
       git
       go
       gparted
+      grimblast
       hugo
       hw-probe
       intel-gpu-tools
