@@ -118,6 +118,7 @@
       whatip
       youtube-dl
       zellij
+      zoxide
     ];
   };
   
@@ -165,7 +166,7 @@
 
         animation = [
           "windows, 1, 7, myBezier"
-          "windows, 1, 7, default popin 80%"
+          "windowsOut, 1, 7, default"
           "border, 1, 10, default"
           "borderangle, 1, 8, default"
           "fade, 1, 7, default"
