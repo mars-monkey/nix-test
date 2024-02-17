@@ -1,4 +1,4 @@
-{ config, pkgs, lib, hyprland, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {  
   nixpkgs.config.allowUnfreePredicate = (pkg: true);

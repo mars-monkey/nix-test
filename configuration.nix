@@ -1,7 +1,9 @@
-{ config, lib, pkgs, hyprland, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [];
+  imports = [
+    inputs.home-manager.nixosModules.default
+  ];
 
   boot = {
     kernelModules = [ "kvm-intel" ];
@@ -133,7 +135,7 @@
     
     hyprland = {
       enable = true;
-      package = hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
   };
 
@@ -178,6 +180,8 @@
   security.rtkit.enable = true;
 
   home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+
     users = {
       "mars-monkey" = import ./home.nix;
     };
