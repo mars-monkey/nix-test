@@ -195,7 +195,7 @@
         sensitivity = "-0.5";
       };
 
-      windowrulev2 = "nomaximizerequest, class:.*";
+      #windowrulev2 = "nomaximizerequest, class:.*";
 
       "$mod" = "SUPER";
 
