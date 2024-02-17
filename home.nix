@@ -122,7 +122,7 @@
   };
   
   wayland.windowManager.hyprland.settings = {
-    monitor = ",preferred,auto,1.2";
+    monitor = ",preferred,auto,1";
     exec-once = "waybar";
     "$terminal" = "kitty";
     
