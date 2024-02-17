@@ -126,7 +126,7 @@
     enable = true;
 
     settings = {
-      monitor = ",preferred,auto,1.8";
+      monitor = ",preferred,auto,1.666";
       "$terminal" = "kitty";
       
 
