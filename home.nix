@@ -121,136 +121,140 @@
     ];
   };
   
-  wayland.windowManager.hyprland.settings = {
-    monitor = ",preferred,auto,1";
-    exec-once = "waybar";
-    "$terminal" = "kitty";
-    
+  wayland.windowManager.hyprland = {
+    enable = true;
 
-    input = {
-      kb_layout = "us";
-      follow_mouse = "1";
-      touchpad.natural_scroll = "yes";
-    };
-    
-    general = {
-      gaps_in = "5";
-      gaps_out = "10";
-      border_size = "3";
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-      "col.inactive_border" = "rgba(595959aa)";
-      layout = "dwindle";
-      allow_tearing = "true";
-    };
+    settings = {
+      monitor = ",preferred,auto,1";
+      exec-once = "waybar";
+      "$terminal" = "kitty";
+      
 
-    decoration = {
-      rounding = "10";
-      drop_shadow = "yes";
-      shadow_range = "4";
-      shadow_render_power = "3";
-      "col.shadow" = "rgba(1a1a1aee)";
-
-      blur = {
-        enabled = "true";
-        size = "3";
-        passes = "2";
+      input = {
+        kb_layout = "us";
+        follow_mouse = "1";
+        touchpad.natural_scroll = "yes";
       };
-    };
+      
+      general = {
+        gaps_in = "5";
+        gaps_out = "10";
+        border_size = "3";
+        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.inactive_border" = "rgba(595959aa)";
+        layout = "dwindle";
+        allow_tearing = "true";
+      };
 
-    animations = {
-      enabled = "yes";
-      bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+      decoration = {
+        rounding = "10";
+        drop_shadow = "yes";
+        shadow_range = "4";
+        shadow_render_power = "3";
+        "col.shadow" = "rgba(1a1a1aee)";
 
-      animation = [
-        "windows, 1, 7, myBezier"
-        "windowsOut, 1, 7, default popin 80%"
-        "border, 1, 10, default"
-        "borderangle, 1, 8, default"
-        "fade, 1, 7, default"
-        "workspaces, 1, 6, default"
+        blur = {
+          enabled = "true";
+          size = "3";
+          passes = "2";
+        };
+      };
+
+      animations = {
+        enabled = "yes";
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+
+        animation = [
+          "windows, 1, 7, myBezier"
+          "windowsOut, 1, 7, default popin 80%"
+          "border, 1, 10, default"
+          "borderangle, 1, 8, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 6, default"
+        ];
+      };
+
+      dwindle = {
+        pseudotile = "yes";
+        preserve_split = "yes";
+      };
+
+      master = {
+        new_is_master = "true";
+      };
+
+      gestures = {
+        workspace_swipe = "true";
+      };
+
+      misc = {
+        force_default_wallpaper = "0";
+      };
+
+      "device:epic-mouse-v1" = {
+        sensitivity = "-0.5";
+      };
+
+      windowrulev2 = "nomaximizerequest, class:.*";
+
+      "$mod" = "SUPER";
+
+      bind = [
+        "$mod, Q, exec, $terminal"
+        "$mod, C, killactive,"
+        "$mod, M, exit,"
+        "$mod, B, exec, librewolf"
+        "$mod, W, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mod, V, togglefloating,"
+        "$mod, R, exec, $menu"
+        "$mod, P, pseudo,"
+        "$mod, O, togglesplit,"
+        
+        "$mod, H, movefocus, l"
+        "$mod, L, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
+        "$mod, 1, workspace, 1"
+        "$mod, 2, workspace, 2"
+        "$mod, 3, workspace, 3"
+        "$mod, 4, workspace, 4"
+        "$mod, 5, workspace, 5"
+        "$mod, 6, workspace, 6"
+        "$mod, 7, workspace, 7"
+        "$mod, 8, workspace, 8"
+        "$mod, 9, workspace, 9"
+        "$mod, 0, workspace, 10"
+
+        /*"$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod, 
+        "$mod,        */
       ];
     };
-
-    dwindle = {
-      pseudotile = "yes";
-      preserve_split = "yes";
-    };
-
-    master = {
-      new_is_master = "true";
-    };
-
-    gestures = {
-      workspace_swipe = "true";
-    };
-
-    misc = {
-      force_default_wallpaper = "0";
-    };
-
-    "device:epic-mouse-v1" = {
-      sensitivity = "-0.5";
-    };
-
-    windowrulev2 = "nomaximizerequest, class:.*";
-
-    "$mod" = "SUPER";
-
-    bind = [
-      "$mod, Q, exec, $terminal"
-      "$mod, C, killactive,"
-      "$mod, M, exit,"
-      "$mod, B, exec, librewolf"
-      "$mod, W, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
-      "$mod, V, togglefloating,"
-      "$mod, R, exec, $menu"
-      "$mod, P, pseudo,"
-      "$mod, O, togglesplit,"
-      
-      "$mod, H, movefocus, l"
-      "$mod, L, movefocus, r"
-      "$mod, K, movefocus, u"
-      "$mod, J, movefocus, d"
-      "$mod, 1, workspace, 1"
-      "$mod, 2, workspace, 2"
-      "$mod, 3, workspace, 3"
-      "$mod, 4, workspace, 4"
-      "$mod, 5, workspace, 5"
-      "$mod, 6, workspace, 6"
-      "$mod, 7, workspace, 7"
-      "$mod, 8, workspace, 8"
-      "$mod, 9, workspace, 9"
-      "$mod, 0, workspace, 10"
-
-      /*"$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod, 
-      "$mod,        */
-    ];
   };
 
   programs = {
