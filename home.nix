@@ -211,7 +211,7 @@
         "$mod, R, exec, $menu"
         "$mod, P, pseudo,"
         "$mod, O, togglesplit,"
-        ", Print, grimblast copy"
+        ", Print, exec, grimblast copy"
         
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
