@@ -115,6 +115,7 @@
       vlc
       waybar
       webcord
+      wev
       wget
       whatip
       youtube-dl
@@ -210,6 +211,7 @@
         "$mod, R, exec, $menu"
         "$mod, P, pseudo,"
         "$mod, O, togglesplit,"
+        
         
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
