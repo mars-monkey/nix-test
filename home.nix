@@ -260,11 +260,7 @@
   programs = {
     home-manager.enable = true;
     bash.enable = true;    
-
-    zoxide = {
-      enable = true;
-      enableBashIntegration = true;
-    };
+    zoxide.enable = true;
 
     kitty = {
       enable = true; 
