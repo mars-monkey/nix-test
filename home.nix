@@ -261,7 +261,7 @@
 
   programs = {
     home-manager.enable = true;
-    bash.enable = true;    
+    bash.enable = false;    
     zoxide.enable = true;
 
     kitty = {
