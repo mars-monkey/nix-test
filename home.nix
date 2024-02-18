@@ -131,7 +131,7 @@
 
     settings = {
       monitor = ",preferred,auto,1";
-      "$terminal" = "alacritty";
+      "$terminal" = "kitty";
       
 
       input = {
