@@ -11,6 +11,7 @@
     shellAliases = {
       apt = "nala";
       bt = "bluetoothctl power on && bluetoothctl connect 60:C5:E6:13:7A:63";
+      cd = "echo 'Use zoxide!'";
       cl = "clear";
       gp = "git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
       hcf = "vim ~/nix/home.nix";
