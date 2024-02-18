@@ -261,6 +261,11 @@
     home-manager.enable = true;
     bash.enable = true;    
 
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+    };
+
     kitty = {
       enable = true; 
       theme = "Catppuccin-Macchiato";
