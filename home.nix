@@ -64,6 +64,7 @@
       figlet
       fish
       font-awesome
+      fzf
       geogebra6
       gh
       gimp
