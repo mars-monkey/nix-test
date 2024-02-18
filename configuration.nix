@@ -88,7 +88,7 @@
     hostName = "mars-monkey-laptop";
     hostId = "8425e349";
     networkmanager.enable = true;
-    nameservers = ["1.1.1.1" "1.0.0.1"];
+    nameservers = ["1.1.1.3" "1.0.0.3"];
     useDHCP = lib.mkDefault true;
 
     firewall = {
