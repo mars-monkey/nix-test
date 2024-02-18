@@ -207,6 +207,7 @@
       webcord
       librewolf
       xwaylandvideobridge
+      zoxide
     ];
   };
 }
