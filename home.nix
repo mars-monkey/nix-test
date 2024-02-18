@@ -98,7 +98,6 @@
       obs-studio
       onlyoffice-bin
       pciutils
-      plocate
       pfetch-rs
       ponysay
       prismlauncher
