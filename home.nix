@@ -41,6 +41,7 @@
     };
 
     packages = with pkgs; [
+      alacritty
       andika
       android-tools
       audacity
