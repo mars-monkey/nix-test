@@ -191,6 +191,7 @@
 
       misc = {
         force_default_wallpaper = "0";
+        vfr = "true";
       };
 
       "device:epic-mouse-v1" = {
