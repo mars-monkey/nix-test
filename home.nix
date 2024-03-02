@@ -41,7 +41,6 @@
     };
 
     packages = with pkgs; [
-      alacritty
       andika
       android-tools
       audacity
@@ -59,7 +58,6 @@
       drawing
       du-dust
       eartag
-      electron-mail
       eza
       fastfetch
       figlet
@@ -92,7 +90,6 @@
       mangohud
       mprocs
       neofetch
-      nix-index
       nixos-generators
       nushell
       ntfs3g
@@ -108,7 +105,6 @@
       speedtest-cli
       starship
       tealdeer
-      xfce.thunar
       trash-cli
       tree
       usbutils
@@ -120,8 +116,6 @@
       wev
       wget
       whatip
-      youtube-dl
-      zellij
       zoxide
     ];
   };
@@ -266,7 +260,7 @@
 
     kitty = {
       enable = true; 
-      theme = "Catppuccin-Macchiato";
+      theme = "Catppuccin-Mocha";
 
       settings = {
         enable_audio_bell = "no";

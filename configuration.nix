@@ -20,7 +20,12 @@
     };
 
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+        editor = false;
+      };
+        
       efi.canTouchEfiVariables = true;
     };
   };
@@ -115,7 +120,7 @@
       automatic = true;
       persistent = true;
       dates = "daily";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 3d";
     };
 
     settings = {
