@@ -190,8 +190,10 @@
         vfr = "true";
       };
 
-      "device:epic-mouse-v1" = {
-        sensitivity = "-0.5";
+      device = {
+        epic-mouse-v1 = {
+          sensitivity = "-0.5";
+        };
       };
 
       #windowrulev2 = "nomaximizerequest, class:.*";
