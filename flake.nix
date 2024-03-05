@@ -10,7 +10,7 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-    #impermanence.url = "github:nix-community/impermanence";
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { nixpkgs, ... }@inputs: {
@@ -21,7 +21,7 @@
         modules = [
           ./configuration.nix
           inputs.home-manager.nixosModules.home-manager
-          #inputs.impermanence.nixosModules.impermanence
+          inputs.impermanence.nixosModules.impermanence
         ];
       };
     };

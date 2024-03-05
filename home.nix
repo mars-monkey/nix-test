@@ -18,7 +18,7 @@
       hyp = "vim ~/.config/hypr/hyprland.conf";
       up = "nix flake update ~/nix";
       int = "ping -c 5 1.1.1.1";
-      l = "ls -ah --color=auto";
+      ls = "eza --all --icons --long --reverse --sort=modified --git --header";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
       rm = "trash";
@@ -266,6 +266,7 @@
         enable_audio_bell = "no";
         copy_on_select = "clipboard";
         background_opacity = "0.8";
+        confirm_os_window_close = "-1";
       };
 
       font = {
