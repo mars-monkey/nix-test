@@ -191,9 +191,8 @@
       };
 
       device = {
-        epic-mouse-v1 = {
-          sensitivity = "-0.5";
-        };
+        name = "epic-mouse-v1";
+        sensitivity = "-0.5";
       };
 
       #windowrulev2 = "nomaximizerequest, class:.*";
