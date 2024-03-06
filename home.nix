@@ -19,7 +19,8 @@
       up = "nix flake update ~/nix";
       int = "ping -c 5 1.1.1.1";
       ls = "eza --all --icons --oneline --git --header --group-directories-first";
-      ll = "eza --all --icons --long --reverse --sort=modified --git --header";
+      l = "eza --all --icons --oneline --git --header --group-directories-first";
+      ll = "eza --all --icons --long --reverse --git --header";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
       rm = "trash";
