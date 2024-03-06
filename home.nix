@@ -18,7 +18,8 @@
       hyp = "vim ~/.config/hypr/hyprland.conf";
       up = "nix flake update ~/nix";
       int = "ping -c 5 1.1.1.1";
-      ls = "eza --all --icons --long --reverse --sort=modified --git --header";
+      ls = "eza --all --icons --reverse --sort=modified --git --header";
+      ll = "eza --all --icons --long --reverse --sort=modified --git --header";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
       rm = "trash";
