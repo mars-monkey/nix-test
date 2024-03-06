@@ -243,11 +243,11 @@
         "$mod, mouse_down, workspace, e-1"
         "$mod, mouse_up, workspace, e+1"
 
-        ",xf86audioraisevolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+"
-        ",xf86audiolowervolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%-"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%-"
 
-        ",xf86monbrightnessup, exec, brillo -A 5"
-        ",xf86monbrightnessdown, exec, brillo -U 5"
+        ",XF86MonBrightnessUp, exec, brillo -A 5"
+        ",XF86MonBrightnessDown, exec, brillo -U 5"
       ];
 
       bindm = [

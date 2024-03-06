@@ -66,6 +66,7 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
+    brillo.enable = true;
 
     opengl = {
       enable = true;
