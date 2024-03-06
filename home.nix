@@ -245,6 +245,9 @@
 
         ",xf86audioraisevolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+"
         ",xf86audiolowervolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%-"
+
+        ",xf86monbrightnessup, exec, brillo -A 5"
+        ",xf86monbrightnessdown, exec, brillo -U 5"
       ];
 
       bindm = [
