@@ -46,6 +46,7 @@
       andika
       android-tools
       audacity
+      bat
       bitwarden
       brave
       brillo
