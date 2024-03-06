@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.default
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   boot = {
@@ -204,6 +205,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    #inputs.nixvim.homeManagerModules.nixvim
 
     users = {
       "mars-monkey" = import ./home.nix;

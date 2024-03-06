@@ -9,21 +9,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
     impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { nixpkgs, ... }@inputs: {
-    nixosConfigurations = {
-      "mars-monkey-laptop" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+    nixosConfigurations."mars-monkey-laptop" = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
 
-        modules = [
-          ./configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          inputs.impermanence.nixosModules.impermanence
-        ];
-      };
+      modules = [
+        ./configuration.nix
+        inputs.home-manager.nixosModules.home-manager
+      ];
     };
   };
 
