@@ -1,8 +1,6 @@
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {  
-  nixpkgs.config.allowUnfreePredicate = (pkg: true);
-
   home = {
     username = "mars-monkey";
     homeDirectory = "/home/mars-monkey";
@@ -18,9 +16,9 @@
       hyp = "vim ~/.config/hypr/hyprland.conf";
       up = "nix flake update ~/nix";
       int = "ping -c 5 1.1.1.1";
-      ls = "eza --all --icons --oneline --git --header --group-directories-first";
-      l = "eza --all --icons --oneline --git --header --group-directories-first";
-      ll = "eza --all --icons --long --reverse --git --header";
+      ls = "eza --all --icons --git --group-directories-first";
+      l = "eza --all --icons --git --group-directories-first";
+      ll = "eza --all --icons --long --reverse --git --header --group-directories-first";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
       rm = "trash";
@@ -48,6 +46,7 @@
       android-tools
       audacity
       bat
+      bc
       bitwarden
       brave
       brillo
@@ -56,7 +55,6 @@
       chromium
       clapper
       cmatrix
-      corefonts
       cowsay
       distrobox
       drawing
@@ -199,8 +197,6 @@
         sensitivity = "-0.5";
       };
 
-      #windowrulev2 = "nomaximizerequest, class:.*";
-
       "$mod" = "SUPER";
 
       bind = [
@@ -265,6 +261,12 @@
     home-manager.enable = true;
     bash.enable = true;    
     zoxide.enable = true;
+
+    nixvim = {
+      enable = true;
+
+      colorschemes.catpuccin.enable = true;
+    };
 
     kitty = {
       enable = true; 

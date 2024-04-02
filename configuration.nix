@@ -1,9 +1,8 @@
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 {
   imports = [
-    inputs.home-manager.nixosModules.default
-    inputs.impermanence.nixosModules.impermanence
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   boot = {
@@ -89,10 +88,9 @@
   };
 
   nixpkgs = {
-    hostPlatform = lib.mkDefault "x86_64-linux";
-    config = {
-      allowUnfree = true;
-    };
+    hostPlatform.system = "x86_64-linux";
+
+    config.allowUnfree = true;
   };
 
   system.stateVersion = "24.05";
@@ -102,7 +100,6 @@
     hostId = "8425e349";
     networkmanager.enable = true;
     nameservers = ["1.1.1.3" "1.0.0.3"];
-    useDHCP = lib.mkDefault true;
 
     firewall = {
       enable = false;
@@ -159,7 +156,6 @@
     
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
   };
 
@@ -185,7 +181,6 @@
     fontDir.enable = true;
 
     packages = with pkgs; [
-      corefonts
       noto-fonts
       liberation_ttf
       (nerdfonts.override { fonts = ["Noto"]; })
@@ -204,8 +199,8 @@
   security.rtkit.enable = true;
 
   home-manager = {
+    useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs; };
-    #inputs.nixvim.homeManagerModules.nixvim
 
     users = {
       "mars-monkey" = import ./home.nix;
@@ -223,13 +218,13 @@
   };
 
   environment = {
-    persistence."/safe" = {
+    /*persistence."/safe" = {
       hideMounts = true;
       directories = [
         "/var/log"
         #"/etc/NetworkManager/system-connections"
       ];
-    };
+    };*/
 
     systemPackages = with pkgs; [
       vim
