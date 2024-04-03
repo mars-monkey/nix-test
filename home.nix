@@ -2,6 +2,7 @@
 
 {  
   imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+
   home = {
     username = "mars-monkey";
     homeDirectory = "/home/mars-monkey";
@@ -10,24 +11,26 @@
     shellAliases = {
       apt = "nala";
       bt = "bluetoothctl power on && bluetoothctl remove 60:C5:E6:13:7A:63 && bluetoothctl scan on && sleep 2 && bluetoothctl pair 60:C5:E6:13:7A:63 && bluetoothctl connect 60:C5:E6:13:7A:63";
-      cd = "echo 'Use zoxide!'";
       cl = "clear";
-      gp = "git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
-      hm = "vim ~/nix/home.nix";
-      hyp = "vim ~/.config/hypr/hyprland.conf";
-      up = "nix flake update ~/nix && ";
+      hyp = "nvim ~/.config/hypr/hyprland.conf";
       int = "ping -c 5 1.1.1.1";
-      l = "eza --icons --git --group-directories-first --sort=modified";
-      ls = "eza --all --icons --long --git --header";
-      ll = "eza --all --icons --long --git --header";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
-      rm = "trash";
-      sy = "vim ~/nix/configuration.nix";
-      fl = "vim ~/nix/flake.nix";
-      rb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
-      rbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
       ts = "nix run nixpkgs#";
+
+      fl = "nvim ~/nix/flake.nix";
+      hm = "nvim ~/nix/home.nix";
+      sy = "nvim ~/nix/configuration.nix";
+      up = "nix flake update ~/nix && ";
+      gp = "~/nix/git.sh";
+      rb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
+      rbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
+
+      cd = "echo 'Use zoxide!'";
+      l = "eza --icons --git --group-directories-first --sort=modified";
+      ll = "eza --all --icons --long --git --header";
+      ls = "eza --all --icons --long --git --header";
+      rm = "trash";
     };
    
     sessionVariables = {
@@ -296,7 +299,7 @@
 
     gh = {
       settings = {
-        editor = "vim";
+        editor = "nvim";
       };
       
       gitCredentialHelper = {
