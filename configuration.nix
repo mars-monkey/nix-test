@@ -227,7 +227,6 @@
     };*/
 
     systemPackages = with pkgs; [
-      dash
       gh
       git
       kitty
