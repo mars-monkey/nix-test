@@ -62,6 +62,7 @@
       eartag
       eza
       fastfetch
+      fd
       figlet
       fish
       font-awesome
