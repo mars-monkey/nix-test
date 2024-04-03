@@ -1,6 +1,7 @@
 { pkgs, lib, inputs, ... }:
 
 {  
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
   home = {
     username = "mars-monkey";
     homeDirectory = "/home/mars-monkey";
@@ -66,7 +67,6 @@
       fish
       font-awesome
       fzf
-      geogebra6
       gh
       gimp
       git
@@ -265,7 +265,9 @@
     nixvim = {
       enable = true;
 
-      colorschemes.catpuccin.enable = true;
+      opts = {
+        relativenumber = true;
+      };
     };
 
     kitty = {
