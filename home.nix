@@ -13,20 +13,20 @@
       cd = "echo 'Use zoxide!'";
       cl = "clear";
       gp = "git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
-      hcf = "vim ~/nix/home.nix";
+      hm = "vim ~/nix/home.nix";
       hyp = "vim ~/.config/hypr/hyprland.conf";
       up = "nix flake update ~/nix && ";
       int = "ping -c 5 1.1.1.1";
-      l = "eza --icons --git --group-directories-first";
+      l = "eza --icons --git --group-directories-first --sort=modified";
       ls = "eza --all --icons --long --git --header";
       ll = "eza --all --icons --long --git --header";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
       rm = "trash";
-      sys = "vim ~/nix/configuration.nix";
-      flk = "vim ~/nix/flake.nix";
+      sy = "vim ~/nix/configuration.nix";
+      fl = "vim ~/nix/flake.nix";
       rb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
-      srbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
+      rbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
       ts = "nix run nixpkgs#";
     };
    
