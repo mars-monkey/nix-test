@@ -15,7 +15,7 @@
       gp = "git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
       hcf = "vim ~/nix/home.nix";
       hyp = "vim ~/.config/hypr/hyprland.conf";
-      up = "nix flake update ~/nix";
+      up = "nix flake update ~/nix && ";
       int = "ping -c 5 1.1.1.1";
       ls = "eza --all --icons --git --group-directories-first";
       l = "eza --all --icons --git --group-directories-first";
@@ -23,15 +23,15 @@
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
       rm = "trash";
-      scf = "vim ~/nix/configuration.nix";
-      fcf = "vim ~/nix/flake.nix";
-      srb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
+      sys = "vim ~/nix/configuration.nix";
+      flk = "vim ~/nix/flake.nix";
+      rb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
       srbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
       ts = "nix run nixpkgs#";
     };
    
     sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
       MOZ_ENABLE_WAYLAND = "1";
     };
     
@@ -43,7 +43,6 @@
     };
 
     packages = with pkgs; [
-      andika
       android-tools
       audacity
       bat
@@ -84,8 +83,8 @@
       kitty
       kodi-wayland
       lf
-      librewolf
       libreoffice
+      librewolf
       libva-utils
       lolcat
       lunar-client
@@ -93,8 +92,8 @@
       mprocs
       neofetch
       nixos-generators
-      nushell
       ntfs3g
+      nushell
       obs-studio
       onlyoffice-bin
       pciutils
@@ -260,6 +259,7 @@
   programs = {
     home-manager.enable = true;
     bash.enable = true;    
+    zsh.enable = true;
     zoxide.enable = true;
 
     nixvim = {
