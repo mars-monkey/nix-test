@@ -227,13 +227,14 @@
     };*/
 
     systemPackages = with pkgs; [
-      vim
-      wget
-      kitty
+      dash
       gh
       git
-      webcord
+      kitty
       librewolf
+      vim
+      webcord
+      wget
       xwaylandvideobridge
       zoxide
     ];
