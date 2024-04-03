@@ -268,7 +268,7 @@
 
     nixvim = {
       enable = true;
-      colorscheme = "catppuccin";
+      colorscheme = "catppuccin-macchiato";
 
       opts = {
         relativenumber = true;
