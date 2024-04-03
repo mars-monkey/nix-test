@@ -9,7 +9,7 @@
     
     shellAliases = {
       apt = "nala";
-      bt = "bluetoothctl power on && bluetoothctl connect 60:C5:E6:13:7A:63";
+      bt = "bluetoothctl power on && bluetoothctl remove 60:C5:E6:13:7A:63 && bluetoothctl scan on && sleep 2 && bluetoothctl pair 60:C5:E6:13:7A:63 && bluetoothctl connect 60:C5:E6:13:7A:63";
       cd = "echo 'Use zoxide!'";
       cl = "clear";
       gp = "git -C ~/nix commit -a -m 'Local changes autocommit' && git -C ~/nix push";
