@@ -21,7 +21,7 @@
       fl = "nvim ~/nix/flake.nix";
       hm = "nvim ~/nix/home.nix";
       sy = "nvim ~/nix/configuration.nix";
-      up = "nix flake update ~/nix && ";
+      up = "nix flake update ~/nix && ~/nix/git.sh";
       gp = "~/nix/git.sh";
       rb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
       rbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
@@ -99,6 +99,7 @@
       ntfs3g
       nushell
       obs-studio
+      obsidian
       onlyoffice-bin
       pciutils
       pfetch-rs
