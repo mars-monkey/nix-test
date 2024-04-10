@@ -168,6 +168,8 @@
     flatpak.enable = true;
     blueman.enable = true;
 
+    xserver.desktopManager.lxqt.enable = true;
+
     pipewire = {
       enable = true;
       audio.enable = true;
@@ -205,6 +207,7 @@
 
     users = {
       "mars-monkey" = import ./home.nix;
+      "mars-monkey-de" = import ./home-de.nix;
     };
   };
 
@@ -212,6 +215,12 @@
     mutableUsers = false;
     
     users.mars-monkey = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "networkmanager" "libvirtd" "video" ];
+      hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
+    };
+
+    users.mars-monkey-de = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "libvirtd" "video" ];
       hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
