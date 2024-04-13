@@ -31,7 +31,7 @@
     };
 
     tmp = {
-      useTmpfs = true;
+      useTmpfs = false;
       tmpfsSize = "25%";
     };
   };
