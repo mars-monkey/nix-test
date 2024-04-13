@@ -28,9 +28,7 @@
 
       cd = "echo 'Use zoxide!'";
       l = "eza --icons --git --group-directories-first --sort=modified";
-      ll = "eza --all --icons --long --git --header";
-      ls = "eza --all --icons --long --git --header";
-      rm = "trash";
+      eza = "eza --all --icons --long --git --header";
     };
    
     sessionVariables = {
@@ -47,6 +45,7 @@
 
     packages = with pkgs; [
       android-tools
+      anyrun
       audacity
       bat
       bc
@@ -269,6 +268,7 @@
 
     nixvim = {
       enable = true;
+      colorschemes.catppuccin.enable = true;
 
       opts = {
         relativenumber = true;

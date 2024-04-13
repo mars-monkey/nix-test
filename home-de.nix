@@ -4,8 +4,8 @@
   imports = [ inputs.nixvim.homeManagerModules.nixvim ];
 
   home = {
-    username = "mars-monkey";
-    homeDirectory = "/home/mars-monkey";
+    username = "mars-monkey-de";
+    homeDirectory = "/home/mars-monkey-de";
     stateVersion = "24.05";
     
     shellAliases = {
