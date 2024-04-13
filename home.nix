@@ -49,7 +49,6 @@
       audacity
       bat
       bc
-      bitwarden
       brave
       brillo
       btop
@@ -263,8 +262,15 @@
   programs = {
     home-manager.enable = true;
     bash.enable = true;    
-    zsh.enable = true;
     zoxide.enable = true;
+
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      history.size = 100000;
+    };
 
     nixvim = {
       enable = true;

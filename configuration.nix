@@ -213,6 +213,7 @@
 
   users = {
     mutableUsers = false;
+    #defaultUserShell = pkgs.zsh;
     
     users.mars-monkey = {
       isNormalUser = true;
