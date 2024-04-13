@@ -89,6 +89,7 @@
       librewolf
       libva-utils
       lolcat
+      lsd
       lunar-client
       mangohud
       mprocs
