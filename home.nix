@@ -27,7 +27,7 @@
       rbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
 
       cd = "echo 'Use zoxide!'";
-      l = "eza --icons --git --group-directories-first --sort=modified";
+      l = "eza --icons --git";
       eza = "eza --all --icons --long --git --header";
     };
    
