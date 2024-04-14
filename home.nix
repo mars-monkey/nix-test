@@ -12,7 +12,6 @@
       apt = "nala";
       bt = "bluetoothctl power on && bluetoothctl remove 60:C5:E6:13:7A:63 && bluetoothctl scan on && sleep 2 && bluetoothctl pair 60:C5:E6:13:7A:63 && bluetoothctl connect 60:C5:E6:13:7A:63";
       cl = "clear";
-      hyp = "nvim ~/.config/hypr/hyprland.conf";
       int = "ping -c 5 1.1.1.1";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
@@ -26,7 +25,6 @@
       rb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
       rbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
 
-      cd = "echo 'Use zoxide!'";
       l = "eza --icons --git";
       ez = "eza --all --icons --long --git --header";
     };
@@ -90,6 +88,7 @@
       libva-utils
       lolcat
       lsd
+      lua
       lunar-client
       mangohud
       mprocs
