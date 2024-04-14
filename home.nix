@@ -15,7 +15,6 @@
       apt = "nala";
       bt = "bluetoothctl power on && bluetoothctl remove 60:C5:E6:13:7A:63 && bluetoothctl scan on && sleep 2 && bluetoothctl pair 60:C5:E6:13:7A:63 && bluetoothctl connect 60:C5:E6:13:7A:63";
       cl = "clear";
-      hyp = "nvim ~/.config/hypr/hyprland.conf";
       int = "ping -c 5 1.1.1.1";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
@@ -24,16 +23,13 @@
       fl = "nvim ~/nix/flake.nix";
       hm = "nvim ~/nix/home.nix";
       sy = "nvim ~/nix/configuration.nix";
-      up = "nix flake update ~/nix && ";
+      up = "nix flake update ~/nix && ~/nix/git.sh";
       gp = "~/nix/git.sh";
       rb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
       rbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
 
-      cd = "echo 'Use zoxide!'";
-      l = "eza --icons --git --group-directories-first --sort=modified";
-      ll = "eza --all --icons --long --git --header";
-      ls = "eza --all --icons --long --git --header";
-      rm = "trash";
+      l = "eza --icons --git";
+      ez = "eza --all --icons --long --git --header";
     };
    
     sessionVariables = {
@@ -50,10 +46,10 @@
 
     packages = with pkgs; [
       android-tools
+      anyrun
       audacity
       bat
       bc
-      bitwarden
       brave
       brillo
       btop
@@ -94,6 +90,8 @@
       librewolf
       libva-utils
       lolcat
+      lsd
+      lua
       lunar-client
       mangohud
       mprocs
@@ -102,6 +100,7 @@
       ntfs3g
       nushell
       obs-studio
+      obsidian
       onlyoffice-bin
       pciutils
       pfetch-rs
@@ -266,11 +265,19 @@
   programs = {
     home-manager.enable = true;
     bash.enable = true;    
-    zsh.enable = true;
     zoxide.enable = true;
+
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      history.size = 100000;
+    };
 
     nixvim = {
       enable = true;
+      colorschemes.catppuccin.enable = true;
 
       opts = {
         relativenumber = true;

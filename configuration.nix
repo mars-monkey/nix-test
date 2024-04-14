@@ -3,7 +3,6 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./sddm.nix
   ];
 
   boot = {
@@ -31,7 +30,7 @@
     };
 
     tmp = {
-      useTmpfs = true;
+      useTmpfs = false;
       tmpfsSize = "25%";
     };
   };
@@ -168,6 +167,18 @@
     flatpak.enable = true;
     blueman.enable = true;
 
+    xserver.desktopManager.lxqt.enable = true;
+
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "${pkgs.catppuccin-sddm-corners}/share/sddm/themes/catppuccin-sddm-corners";
+
+      extraPackages = [
+	pkgs.libsForQt5.qt5.qtgraphicaleffects
+      ];
+    };
+
     pipewire = {
       enable = true;
       audio.enable = true;
@@ -205,13 +216,21 @@
 
     users = {
       "mars-monkey" = import ./home.nix;
+      "mars-monkey-de" = import ./home-de.nix;
     };
   };
 
   users = {
     mutableUsers = false;
+    #defaultUserShell = pkgs.zsh;
     
     users.mars-monkey = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "networkmanager" "libvirtd" "video" ];
+      hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
+    };
+
+    users.mars-monkey-de = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "libvirtd" "video" ];
       hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";

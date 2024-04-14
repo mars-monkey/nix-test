@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
   # SDDM still needs x11, it should be removed in a future release
   # Most of the bloat can probably be fixed with excludePackages
-  services.xserver = {
+  services = {
     enable = true;
     excludePackages = with pkgs; [
       xterm
