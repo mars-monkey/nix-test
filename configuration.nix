@@ -3,7 +3,6 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./sddm.nix
   ];
 
   boot = {
@@ -169,6 +168,16 @@
     blueman.enable = true;
 
     xserver.desktopManager.lxqt.enable = true;
+
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "${pkgs.catppuccin-sddm-corners}/share/sddm/themes/catppuccin-sddm-corners";
+
+      extraPackages = [
+	pkgs.libsForQt5.qt5.qtgraphicaleffects
+      ];
+    };
 
     pipewire = {
       enable = true;
