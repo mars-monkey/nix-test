@@ -4,6 +4,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./waybar.nix
+    ./hyprlock.nix
   ];
 
   home = {
