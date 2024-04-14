@@ -119,7 +119,6 @@
       ventoy-full
       vim
       vlc
-      waybar
       webcord
       wev
       wget
