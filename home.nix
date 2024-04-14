@@ -28,7 +28,7 @@
 
       cd = "echo 'Use zoxide!'";
       l = "eza --icons --git";
-      eza = "eza --all --icons --long --git --header";
+      ez = "eza --all --icons --long --git --header";
     };
    
     sessionVariables = {
