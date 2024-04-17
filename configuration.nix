@@ -151,7 +151,6 @@
   };
 
   programs = {
-    waybar.enable = true;
     virt-manager.enable = true;
     
     hyprland = {

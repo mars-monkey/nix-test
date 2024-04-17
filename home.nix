@@ -1,7 +1,11 @@
 { pkgs, lib, inputs, ... }:
 
 {  
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./waybar.nix
+    ./hyprlock.nix
+  ];
 
   home = {
     username = "mars-monkey";
@@ -116,7 +120,6 @@
       ventoy-full
       vim
       vlc
-      waybar
       webcord
       wev
       wget
