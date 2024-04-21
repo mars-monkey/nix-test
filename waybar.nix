@@ -163,7 +163,7 @@
         clock = {
           format = "{:%H:%M}";
           format-alt = "{:%d/%m/%Y}";
-          timezone = "America/Vancouver";
+          timezone = "Africa/Douala";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         network = {
