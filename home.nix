@@ -127,6 +127,8 @@
       zoxide
     ];
   };
+
+  fonts.fontconfig.enable = true;
   
   wayland.windowManager.hyprland = {
     enable = true;
@@ -210,6 +212,7 @@
         "$mod, C, killactive,"
         "$mod, M, exit,"
         "$mod, B, exec, librewolf"
+        "$mod, O, exec, obsidian"
         "$mod, W, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mod, V, togglefloating,"
         "$mod, R, exec, $menu"
