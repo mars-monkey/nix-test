@@ -98,7 +98,7 @@
   networking = {
     hostName = "mars-monkey-laptop";
     hostId = "8425e349";
-    networkmanager.enable = true;
+    wireless.iwd.enable = true;
     nameservers = ["1.1.1.3" "1.0.0.3"];
 
     firewall = {
