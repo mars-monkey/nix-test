@@ -120,13 +120,6 @@
       automatic = true;
       dates = ["daily"];
     };
-    
-    gc = {
-      automatic = true;
-      persistent = true;
-      dates = "daily";
-      options = "--delete-older-than 3d";
-    };
 
     settings = {
       trusted-users = ["@wheel"];
