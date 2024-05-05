@@ -131,10 +131,22 @@
 
   fonts.fontconfig.enable = true;
   
+  # Hyprland catppuccin style
+  home.file.".config/hypr/mocha.conf".source =
+    pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "hyprland";
+      rev = "v1.3";
+      hash = "sha256-jkk021LLjCLpWOaInzO4Klg6UOR4Sh5IcKdUxIn7Dis=";
+    }
+    + "/themes/mocha.conf";
   wayland.windowManager.hyprland = {
     enable = true;
 
     settings = {
+      source = [
+        "~/.config/hypr/mocha.conf"
+      ];
       monitor = ",highres,auto,1";
       "$terminal" = "kitty";
       xwayland.force_zero_scaling = true;
@@ -150,8 +162,8 @@
         gaps_in = "5";
         gaps_out = "10";
         border_size = "3";
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "$mauve";
+        "col.inactive_border" = "$surface0";
         layout = "dwindle";
         allow_tearing = "true";
       };
@@ -160,7 +172,7 @@
         drop_shadow = "yes";
         shadow_range = "4";
         shadow_render_power = "3";
-        "col.shadow" = "rgba(1a1a1aee)";
+        "col.shadow" = "$surface1";
 
         blur = {
           enabled = "true";
