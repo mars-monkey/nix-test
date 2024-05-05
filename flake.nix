@@ -21,6 +21,7 @@
   };
 
   outputs = { nixpkgs, ... }@inputs: {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations."mars-monkey-laptop" = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
 
