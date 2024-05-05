@@ -156,6 +156,11 @@
     hyprland = {
       enable = true;
     };
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 10d --keep 5";
+    };
   };
 
   services = {
@@ -234,6 +239,16 @@
       extraGroups = [ "wheel" "networkmanager" "libvirtd" "video" ];
       hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
     };
+  };
+
+    # Use wayland pls uwu
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    GDK_BACKEND = "wayland,x11";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    SDL_VIDEODRIVER = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 
   environment = {
