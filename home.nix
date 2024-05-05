@@ -5,6 +5,7 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./waybar.nix
     ./hyprlock.nix
+    ./anyrun.nix
   ];
 
   home = {
