@@ -98,7 +98,7 @@
   networking = {
     hostName = "mars-monkey-laptop";
     hostId = "8425e349";
-    networkmanager.enable = true;
+    wireless.iwd.enable = true;
     nameservers = ["1.1.1.3" "1.0.0.3"];
 
     firewall = {
@@ -119,13 +119,6 @@
     optimise = {
       automatic = true;
       dates = ["daily"];
-    };
-    
-    gc = {
-      automatic = true;
-      persistent = true;
-      dates = "daily";
-      options = "--delete-older-than 3d";
     };
 
     settings = {
@@ -155,6 +148,11 @@
     
     hyprland = {
       enable = true;
+    };
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 10d --keep 5";
     };
   };
 
@@ -234,6 +232,16 @@
       extraGroups = [ "wheel" "networkmanager" "libvirtd" "video" ];
       hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
     };
+  };
+
+    # Use wayland pls uwu
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    GDK_BACKEND = "wayland,x11";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    SDL_VIDEODRIVER = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 
   environment = {

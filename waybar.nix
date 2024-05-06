@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -27,8 +26,13 @@
       }
       /* Set default padding & background */
       #workspaces,
+      #window,
       #custom-music,
       #tray,
+      #idle_inhibitor,
+      #bluetooth,
+      #backlight,
+      #backlight-slider,
       #network,
       #clock,
       #battery,
@@ -40,7 +44,7 @@
       #custom-poweroff {
         background-color: @surface0;
         padding: 0.5rem 1rem;
-        margin: 5px 0;
+        margin: 5px 0 0 0;
       }
 
       #waybar {
@@ -81,19 +85,19 @@
         border-radius: 1rem;
       }
 
+      #window {
+        border-radius: 1rem;
+      }
+
       #tray {
         margin-right: 1rem;
         border-radius: 1rem;
       }
 
       #clock {
-        color: @blue;
+        color: @rosewater;
         border-radius: 0px 1rem 1rem 0px;
         margin-right: 1rem;
-      }
-
-      #battery {
-        color: @green;
       }
 
       #battery.charging {
@@ -108,15 +112,22 @@
           border-radius: 0;
       }
 
-      #pulseaudio {
-        color: @maroon;
+      #idle_inhibitor {
         border-radius: 1rem 0px 0px 1rem;
         margin-left: 1rem;
+      }
+
+      #pulseaudio {
+        color: @maroon;
       }
 
       #custom-music {
         color: @mauve;
         border-radius: 1rem;
+      }
+
+      #bluetooth {
+        color: @blue;
       }
 
       /* Powermenu group */
@@ -141,20 +152,43 @@
           border-radius: 1rem;
           color: @red;
       }
+      #backlight {
+        color: @yellow;
+        border-radius: 1rem 0px 0px 1rem;
+      }
+      #backlight-slider slider {
+        min-height: 0px;
+        min-width: 0px;
+        opacity: 0;
+        background-image: none;
+        border: none;
+        box-shadow: none;
+      }
+      #backlight-slider trough {
+        min-width: 80px;
+        min-height: 10px;
+        border-radius: 5px;
+        background-color: black;
+      }
+      #backlight-slider highlight {
+        min-width: 10px;
+        border-radius: 5px;
+        background-color: @text;
+      }
     '';
     settings = {
       mainBar = {
         layer = "top";
         modules-left = ["hyprland/workspaces"];
-        #modules-center = ["custom/music"];
-        modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "group/group-power"];
+        #modules-center = ["hyprland/window"];
+        modules-right = ["tray" "group/group-backlight" "pulseaudio" "bluetooth" "network" "battery" "clock" "group/group-power"];
         position = "top";
         battery = {
           format = "{icon}";
           format-alt = "{icon}";
           format-charging = "󰂄";
           format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-          format-plugged = "";
+          format-plugged = "󱉝";
           states = {
             critical = 15;
             warning = 30;
@@ -172,8 +206,18 @@
           format-disconnected = "󰤯";
           format-ethernet = "󰈀";
           tooltip = true;
+          tooltip-format = ""; # An empty format will hide the tooltip
           tooltip-format-wifi = "<big>{essid}</big>\n<small>󰩟 {ipaddr}/{cidr}</small>\n<small>󱨂 {signalStrength}</small>";
           tooltip-format-ethernet = "<big>{ifname}</big>\n<small>󰩟 {ipaddr}/{cidr}</small>";
+          on-click = "hyprctl dispatch exec ${pkgs.lib.getExe pkgs.iwgtk}";
+        };
+        bluetooth = {
+          tooltip = false;
+          format-on = "󰂯";
+          format-off = "󰂲";
+          format-connected = "󰂱";
+          format-connected-battery = ["󰥇" "󰤾" "󰤿" "󰥀" "󰥁" "󰥂" "󰥃" "󰥄" "󰥅" "󰥆" "󰥈"];
+          on-click = "hyprctl dispatch exec ${pkgs.lib.getExe pkgs.overskride}";
         };
         "custom/music" = {
           escape = true;
@@ -184,11 +228,36 @@
           on-click = "playerctl play-pause";
           tooltip = false;
         };
+        # Screen backlight group
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
+        };
+        backlight = {
+          #device = "intel_backlight";
+          format = "{icon}";
+          format-icons = ["" "" "" "" "" "" "" "" ""];
+          tooltip = false;
+        };
+        "backlight/slider" = {};
+        "group/group-backlight" = {
+          drawer = {
+            children-class = "not-backlight";
+            transition-duration = 500;
+            transition-left-to-right = false;
+          };
+          # The first module in the list is shown as the initial button
+          modules = ["backlight" "idle_inhibitor" "backlight/slider"];
+          orientation = "inherit";
+        };
         pulseaudio = {
           format = "{icon} {volume}%";
           format-icons = {default = ["" "" " "];};
           format-muted = "";
-          on-click = "pavucontrol";
+          on-click = "hyprctl dispatch exec ${pkgs.lib.getExe pkgs.pavucontrol}";
         };
         tray = {
           icon-size = 21;
@@ -199,6 +268,10 @@
           format = " {icon} ";
           format-icons = {default = "";};
           sort-by-name = true;
+        };
+        "hyprland/window" = {
+          "max-length" = 200;
+          "separate-outputs" = true;
         };
 
         "custom/poweroff" = {
@@ -213,17 +286,17 @@
         };
         "custom/reboot" = {
           format = "󰜉";
-          on-click = "hyprctl dispatch exec 'systemctl restart'";
+          on-click = "hyprctl dispatch exec 'systemctl reboot'";
           tooltip = false;
         };
         "custom/lock" = {
           format = "";
-          on-click = "hyprctl dispatch exec 'hyprlock'";
+          on-click = "hyprctl dispatch exec 'loginctl lock-session'";
           tooltip = false;
         };
         "custom/suspend" = {
           format = "󰤄";
-          on-click = "hyprctl dispatch exec 'hyprlock & systemctl suspend'";
+          on-click = "hyprctl dispatch exec 'loginctl lock-session & sleep 0.5 && systemctl suspend'";
           tooltip = false;
         };
         "group/group-power" = {

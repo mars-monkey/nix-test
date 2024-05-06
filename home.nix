@@ -5,6 +5,7 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./waybar.nix
     ./hyprlock.nix
+    ./anyrun.nix
   ];
 
   home = {
@@ -36,7 +37,6 @@
    
     sessionVariables = {
       EDITOR = "nvim";
-      MOZ_ENABLE_WAYLAND = "1";
     };
     
     pointerCursor = {
@@ -131,12 +131,25 @@
 
   fonts.fontconfig.enable = true;
   
+  # Hyprland catppuccin style
+  home.file.".config/hypr/mocha.conf".source =
+    pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "hyprland";
+      rev = "v1.3";
+      hash = "sha256-jkk021LLjCLpWOaInzO4Klg6UOR4Sh5IcKdUxIn7Dis=";
+    }
+    + "/themes/mocha.conf";
   wayland.windowManager.hyprland = {
     enable = true;
 
     settings = {
-      monitor = ",preferred,auto,1";
+      source = [
+        "~/.config/hypr/mocha.conf"
+      ];
+      monitor = ",highres,auto,1";
       "$terminal" = "kitty";
+      xwayland.force_zero_scaling = true;
       
 
       input = {
@@ -149,18 +162,17 @@
         gaps_in = "5";
         gaps_out = "10";
         border_size = "3";
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "$mauve";
+        "col.inactive_border" = "$surface0";
         layout = "dwindle";
         allow_tearing = "true";
       };
-
       decoration = {
         rounding = "10";
         drop_shadow = "yes";
         shadow_range = "4";
         shadow_render_power = "3";
-        "col.shadow" = "rgba(1a1a1aee)";
+        "col.shadow" = "$surface1";
 
         blur = {
           enabled = "true";
@@ -219,7 +231,7 @@
         "$mod, R, exec, $menu"
         "$mod, P, pseudo,"
         "$mod, O, togglesplit,"
-        ", Print, exec, grimblast copy"
+        ", Print, exec, grimblast copysave area"
         
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
@@ -253,6 +265,12 @@
         "$mod, mouse_down, workspace, e-1"
         "$mod, mouse_up, workspace, e+1"
 
+        # Reload hyprland
+        "CTRL + ALT, delete, exec, hyprctl reload && systemctl restart --user waybar hypridle"
+        "$mod SPACE, exec, anyrun"
+      ];
+      binde = [
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%-"
 
@@ -263,6 +281,13 @@
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
+      ];
+      windowrulev2 = [
+        "float, move onscreen 50% 50%, class:io.github.kaii_lb.Overskride" # Make overskride/iwgtk a popup window, move out later
+        "float, move onscreen 50% 50%, class:org.twosheds.iwgtk"
+        "float, move onscreen 50% 50%, class:iwgtk" # For the password prompt
+
+        "bordercolor $red,xwayland:1" # Set the bordercolor to red if window is Xwayland
       ];
     };
   };
