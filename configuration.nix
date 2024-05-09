@@ -157,14 +157,31 @@
   };
 
   services = {
-    printing.enable = true;
-    fwupd.enable = true;
-    thermald.enable = true;
-    locate.enable = true;
-    flatpak.enable = true;
     blueman.enable = true;
+    flatpak.enable = true;
+    fwupd.enable = true;
+    locate.enable = true;
+    printing.enable = true;
+    thermald.enable = true;
 
     xserver.desktopManager.lxqt.enable = true;
+
+    samba = {
+      enable = true;
+      securityType = "user";
+      shares = {
+        public = {
+	  path = "/DATA";
+	  browseable = "yes";
+	  "read only" = "no";
+	  "guest ok" = "yes";
+	};
+      };
+    };
+
+    samba-wsdd = {
+      enable = true;
+    };
 
     displayManager.sddm = {
       enable = true;
