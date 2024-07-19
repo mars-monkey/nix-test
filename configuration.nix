@@ -169,6 +169,10 @@
     samba = {
       enable = true;
       securityType = "user";
+      extraConfig = ''
+        guest account = nobody
+	mapt to guest = bad user
+      '';
       shares = {
         public = {
 	  path = "/DATA";
