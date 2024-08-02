@@ -5,7 +5,7 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./waybar.nix
     ./hyprlock.nix
-    ./anyrun.nix
+    #./anyrun.nix
   ];
 
   home = {
@@ -200,9 +200,6 @@
         preserve_split = "yes";
       };
 
-      master = {
-        new_is_master = "true";
-      };
 
       gestures = {
         workspace_swipe = "true";
@@ -267,7 +264,6 @@
 
         # Reload hyprland
         "CTRL + ALT, delete, exec, hyprctl reload && systemctl restart --user waybar hypridle"
-        "$mod SPACE, exec, anyrun"
       ];
       binde = [
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
