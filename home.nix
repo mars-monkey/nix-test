@@ -307,7 +307,7 @@
       colorschemes.catppuccin.enable = true;
       
       clipboard = {
-        register = "";
+        register = "*";
         providers.wl-copy.enable = true;
       };
 
