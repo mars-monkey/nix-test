@@ -99,6 +99,7 @@
       mangohud
       mprocs
       neofetch
+      nix-tree
       nixos-generators
       ntfs3g
       nushell
@@ -304,6 +305,10 @@
     nixvim = {
       enable = true;
       colorschemes.catppuccin.enable = true;
+      
+      clipboard = {
+      	providers.wl-copy.enable = true;
+      };
 
       opts = {
         relativenumber = true;
