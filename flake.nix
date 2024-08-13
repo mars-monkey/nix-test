@@ -32,6 +32,11 @@
           ./hosts/jaguar
         ];
       };
+      "here-nor-there" = nixosSystem {
+        modules = [
+          ./hosts/here-nor-there
+        ];
+      };
     };
   };
 }
