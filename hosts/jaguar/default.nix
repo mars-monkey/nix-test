@@ -96,7 +96,7 @@
   system.stateVersion = "24.05";
 
   networking = {
-    hostName = "mars-monkey-laptop";
+    hostName = "jaguar";
     hostId = "8425e349";
     wireless.iwd.enable = true;
     nameservers = ["1.1.1.3" "1.0.0.3"];
@@ -107,7 +107,7 @@
     };
  };
 
-  time.timeZone = "Africa/Douala";
+  time.timeZone = "America/Vancouver";
   i18n.defaultLocale = "en_CA.UTF-8";
 
   console = {
@@ -234,7 +234,6 @@
 
     users = {
       "mars-monkey" = import ./home.nix;
-      "mars-monkey-de" = import ./home-de.nix;
     };
   };
 

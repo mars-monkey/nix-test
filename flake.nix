@@ -1,5 +1,5 @@
 {
-  description = "mars-monkey's experimental config";
+  description = "Mars Monkey's Unified Flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -14,19 +14,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
+    nvf = {
+      url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, ... }@inputs: {
-    nixosConfigurations."mars-monkey-laptop" = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+  outputs = { nixpkgs, ... }@inputs:
+  let
+    inherit (nixpkgs.lib) nixosSystem;
+  in {
+    nixosConfigurations = {
+      "jaguar" = nixosSystem {
+        specialArgs = { inherit inputs; };
 
-      modules = [
-        ./configuration.nix
-      ];
+        modules = [
+          ./hosts/jaguar
+        ];
+      };
     };
   };
 }
