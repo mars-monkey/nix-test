@@ -32,6 +32,15 @@
 
       l = "eza --icons --git";
       ez = "eza --all --icons --long --git --header";
+      z = ''
+        cd() { 
+          if [ “$#” -eq 0 ]; then
+            cd "/safe/data”
+          else
+            command z “$@“
+          if
+        }
+      ''
     };
    
     sessionVariables = {
