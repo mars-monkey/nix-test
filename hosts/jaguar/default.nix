@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   nix.package = pkgs.nixVersions.nix_2_23;

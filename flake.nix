@@ -18,6 +18,8 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { nixpkgs, ... }@inputs:
