@@ -23,12 +23,12 @@
       ts = "nix run nixpkgs#";
 
       fl = "nvim ~/nix/flake.nix";
-      hm = "nvim ~/nix/home.nix";
-      sy = "nvim ~/nix/configuration.nix";
+      hm = "nvim ~/nix/hosts/jaguar/home.nix";
+      sy = "nvim ~/nix/hosts/jaguar/default.nix";
       up = "nix flake update ~/nix && ~/nix/git.sh";
       gp = "~/nix/git.sh";
-      rb = "sudo nixos-rebuild switch --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
-      rbb = "sudo nixos-rebuild boot --flake ~/nix#mars-monkey-laptop && ~/nix/git.sh";
+      rb = "sudo nixos-rebuild switch --flake ~/nix#jaguar && ~/nix/git.sh";
+      rbb = "sudo nixos-rebuild boot --flake ~/nix#jaguar && ~/nix/git.sh";
 
       l = "eza --icons --git";
       ez = "eza --all --icons --long --git --header";
