@@ -5,6 +5,8 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  nix.package = pkgs.nixVersions.nix_2_23;
+
   boot = {
     kernelModules = [ "kvm-intel" ];
     
