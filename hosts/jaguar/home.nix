@@ -147,7 +147,7 @@
       source = [
         "~/.config/hypr/mocha.conf"
       ];
-      monitor = ",highres,auto,1";
+      monitor = ",highres,auto,1.2";
       "$terminal" = "kitty";
       xwayland.force_zero_scaling = true;
       
