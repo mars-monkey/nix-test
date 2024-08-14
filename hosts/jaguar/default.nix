@@ -291,6 +291,9 @@
       users.mars-monkey = {
         directories = [
 	  ".librewolf"
+	  ".cache/tealdeer"
+	  ".local/share/zoxide"
+	  ".local/state/nix"
         ];
 
 	files = [
