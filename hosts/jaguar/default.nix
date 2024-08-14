@@ -188,8 +188,8 @@
       servers = {
         test = {
 	  enable = true;
-	  package = pkgs.fabricServers.fabric-1_18_2;
-	  jvmOpts = "-Xms4092M -Xmx4092M -XX:UseG1GC nogui";
+	  #package = pkgs.fabricServers.fabric-1_18_2;
+	  /*jvmOpts = "-Xms4092M -Xmx4092M -XX:UseG1GC nogui";
 
 	  serverProperties = {
 	    allow-nether = false;
@@ -209,7 +209,7 @@
 	    spawn-monsters = false;
 	    spawn-npcs = false;
 	    white-list = true;
-          };
+          };*/
 	};
       };
     };
