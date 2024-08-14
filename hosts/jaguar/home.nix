@@ -22,13 +22,13 @@
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
       ts = "nix run nixpkgs#";
 
-      fl = "nvim ~/nix/flake.nix";
-      hm = "nvim ~/nix/hosts/jaguar/home.nix";
-      sy = "nvim ~/nix/hosts/jaguar/default.nix";
-      up = "nix flake update ~/nix && ~/nix/git.sh";
-      gp = "~/nix/git.sh";
-      rb = "sudo nixos-rebuild switch --flake ~/nix#jaguar && ~/nix/git.sh";
-      rbb = "sudo nixos-rebuild boot --flake ~/nix#jaguar && ~/nix/git.sh";
+      fl = "nvim /safe/data/nix/flake.nix";
+      hm = "nvim /safe/data/nix/hosts/jaguar/home.nix";
+      sy = "nvim /safe/data/nix/hosts/jaguar/default.nix";
+      up = "nix flake update /safe/data/nix && /safe/data/nix/git.sh";
+      gp = "/safe/data/nix/git.sh";
+      rb = "sudo nixos-rebuild switch --flake /safe/data/nix#jaguar && /safe/data/nix/git.sh";
+      rbb = "sudo nixos-rebuild boot --flake /safe/data/nix#jaguar && /safe/data/nix/git.sh";
 
       l = "eza --icons --git";
       ez = "eza --all --icons --long --git --header";
@@ -40,7 +40,7 @@
             command z “$@“
           if
         }
-      ''
+      '';
     };
    
     sessionVariables = {
