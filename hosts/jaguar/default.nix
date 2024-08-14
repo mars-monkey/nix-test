@@ -281,6 +281,7 @@
 
   home-manager = {
     useGlobalPkgs = true;
+    useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
 
     users = {
@@ -340,7 +341,6 @@
 	  ".librewolf"
 	  ".cache/tealdeer"
 	  ".local/share/zoxide"
-	  ".local/state/nix"
         ];
 
 	files = [
