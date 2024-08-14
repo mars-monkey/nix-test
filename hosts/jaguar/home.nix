@@ -25,7 +25,7 @@
       fl = "nvim /safe/data/nix/flake.nix";
       hm = "nvim /safe/data/nix/hosts/jaguar/home.nix";
       sy = "nvim /safe/data/nix/hosts/jaguar/default.nix";
-      up = "nix flake update /safe/data/nix && /safe/data/nix/git.sh";
+      up = "nix flake update /safe/data/nix/ && /safe/data/nix/git.sh";
       gp = "/safe/data/nix/git.sh";
       rb = "sudo nixos-rebuild switch --flake /safe/data/nix#jaguar && /safe/data/nix/git.sh";
       rbb = "sudo nixos-rebuild boot --flake /safe/data/nix#jaguar && /safe/data/nix/git.sh";
