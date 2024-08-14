@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  config,
+  osConfig,
   ...
 }: {
   systemd.user.services."waybar" = {
@@ -198,7 +198,7 @@
         clock = {
           format = "{:%H:%M}";
           format-alt = "{:%d/%m/%Y}";
-          timezone = "${config.time.timeZone}";
+          timezone = "${osConfig.time.timeZone}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         network = {
