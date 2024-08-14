@@ -176,6 +176,7 @@
     locate.enable = true;
     printing.enable = true;
     thermald.enable = true;
+    openssh.enable = true;
 
     xserver.desktopManager.lxqt.enable = true;
 
