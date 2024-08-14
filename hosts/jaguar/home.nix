@@ -32,7 +32,7 @@
 
       l = "eza --icons --git";
       ez = "eza --all --icons --long --git --header";
-      z = ''
+      zh = "z /safe/data";/*''
         z_custom() { 
           if [ "$#" -eq 0 ]; then
             command cd "/safe/data"
@@ -41,7 +41,7 @@
           fi
         }
 	z_custom
-      '';
+      '';*/
     };
    
     sessionVariables = {
