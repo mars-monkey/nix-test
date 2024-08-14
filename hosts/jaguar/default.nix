@@ -208,7 +208,7 @@
 	    snooper-enabled = false;
 	    spawn-monsters = false;
 	    spawn-npcs = false;
-	    white-list = true;
+	    white-list = false;
           };
 	};
       };
