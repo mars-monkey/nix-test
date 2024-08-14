@@ -20,6 +20,11 @@
         "usb_storage"
         "sd_mod"
       ];
+
+      postDeviceCommands = lib.mkAfter ''
+        zfs rollback -r pool/root@blank
+        zfs rollback -r pool/home@blank
+      '';
     };
 
     loader = {
@@ -258,24 +263,42 @@
     };
   };
 
-    # Use wayland pls uwu
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    GDK_BACKEND = "wayland,x11";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    SDL_VIDEODRIVER = "wayland";
-    CLUTTER_BACKEND = "wayland";
-    MOZ_ENABLE_WAYLAND = "1";
-  };
-
   environment = {
-    /*persistence."/safe" = {
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      GDK_BACKEND = "wayland,x11";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      SDL_VIDEODRIVER = "wayland";
+      CLUTTER_BACKEND = "wayland";
+      MOZ_ENABLE_WAYLAND = "1";
+    };
+
+    persistence."/safe/root" = {
       hideMounts = true;
+
       directories = [
         "/var/log"
-        #"/etc/NetworkManager/system-connections"
+        "/var/lib/bluetooth"
+        "/var/lib/nixos"
+        "/var/lib/systemd/coredump"
+        "/etc/NetworkManager/system-connections"
       ];
-    };*/
+
+      files = [
+        "/etc/machine-id"
+      ];
+
+      users.mars-monkey = {
+        directories = [
+	  ".librewolf"
+        ];
+
+	files = [
+	  ".bash_history"
+	];
+      };
+    };
+
 
     systemPackages = with pkgs; [
       gh
