@@ -300,6 +300,10 @@
       extraGroups = [ "wheel" "netdev" "libvirtd" "video" ];
       hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
     };
+
+    users."root".openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5ibKzd+V2eR1vmvBAfSWcZmPB8zUYFMAN3FS6xY9ma"
+      ];
   };
 
   environment = {
