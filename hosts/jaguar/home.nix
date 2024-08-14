@@ -33,7 +33,7 @@
       l = "eza --icons --git";
       ez = "eza --all --icons --long --git --header";
       z = ''
-        cd() { 
+        z_custom() { 
           if [ "$#" -eq 0 ]; then
             command cd "/safe/data"
           else
