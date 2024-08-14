@@ -30,8 +30,8 @@
       rb = "sudo nixos-rebuild switch --flake /safe/data/nix#jaguar && /safe/data/nix/git.sh";
       rbb = "sudo nixos-rebuild boot --flake /safe/data/nix#jaguar && /safe/data/nix/git.sh";
 
-      l = "eza --icons --git";
-      ez = "eza --all --icons --long --git --header";
+      l = "eza --all --icons --git";
+      ll = "eza --all --icons --long --git --header";
       zh = "z /safe/data";/*''
         z_custom() { 
           if [ "$#" -eq 0 ]; then
