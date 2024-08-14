@@ -4,6 +4,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.impermanence.nixosModules.impermanence
+    inputs.nix-minecraft.nixosModules.minecraft-servers
   ];
 
   nix.package = pkgs.nixVersions.nix_2_23;
@@ -99,6 +100,10 @@
     hostPlatform.system = "x86_64-linux";
 
     config.allowUnfree = true;
+
+    overlays = [
+      inputs.nix-minecraft.overlay
+    ];
   };
 
   system.stateVersion = "24.05";

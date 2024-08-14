@@ -20,6 +20,8 @@
     };
 
     impermanence.url = "github:nix-community/impermanence";
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { nixpkgs, ... }@inputs:
