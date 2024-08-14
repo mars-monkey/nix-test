@@ -183,7 +183,7 @@
     minecraft-servers = {
       enable = true;
       eula = true;
-      dataDir = "/safe/data/mc-servers";
+      #dataDir = "/safe/data/mc-servers";
 
       servers = {
         test = {
