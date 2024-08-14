@@ -35,10 +35,10 @@
       z = ''
         cd() { 
           if [ “$#” -eq 0 ]; then
-            cd "/safe/data”
+            command cd "/safe/data”
           else
             command z “$@“
-          if
+          fi
         }
       '';
     };
