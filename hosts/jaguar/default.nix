@@ -106,8 +106,8 @@
   networking = {
     hostName = "jaguar";
     hostId = "8425e349";
-    wireless.iwd.enable = true;
     nameservers = ["1.1.1.3" "1.0.0.3"];
+    wireless.iwd.enable = true;
 
     firewall = {
       enable = false;
@@ -281,7 +281,7 @@
         "/var/lib/bluetooth"
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
-        "/etc/NetworkManager/system-connections"
+	"/var/lib/iwd"
       ];
 
       files = [
