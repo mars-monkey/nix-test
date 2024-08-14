@@ -125,6 +125,7 @@
       speedtest-cli
       starship
       tealdeer
+      tmux
       trash-cli
       tree
       usbutils
