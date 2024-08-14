@@ -236,6 +236,7 @@
         "$mod, O, exec, obsidian"
         "$mod, W, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mod, V, togglefloating,"
+        "$mod, F, fullscreen,"
         "$mod, R, exec, $menu"
         "$mod, P, pseudo,"
         "$mod, O, togglesplit,"

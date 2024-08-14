@@ -1,7 +1,7 @@
 # UEFI only GPT
 let
   hostname = "jaguar";
-  device = "";
+  device = "by-id/nvme-LITEON_CL1-8D512_002007100VEX";
 in {
   disko.devices = {
     disk."zdisk" = {
