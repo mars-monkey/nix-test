@@ -40,6 +40,7 @@
             command z "$@"
           fi
         }
+	z_custom
       '';
     };
    
