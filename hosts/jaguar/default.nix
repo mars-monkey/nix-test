@@ -6,6 +6,9 @@
     inputs.impermanence.nixosModules.impermanence
   ];
 
+  # Hyprlock PAM configuration
+  security.pam.services."hyprlock" = {};
+  
   nix.package = pkgs.nixVersions.nix_2_23;
 
   boot = {
