@@ -179,6 +179,40 @@
 
     xserver.desktopManager.lxqt.enable = true;
 
+    minecraft-servers = {
+      enable = true;
+      eula = true;
+      dataDir = "/safe/data/mc-servers";
+
+      servers = {
+        test = {
+	  enable = true;
+	  package = pkgs.fabricServers.fabric-1_18_2;
+	  jvmOpts = "-Xms4092M -Xmx4092M -XX:UseG1GC nogui";
+
+	  serverProperties = {
+	    allow-nether = false;
+	    difficulty = "hard";
+	    enable-query = true;
+	    enforce-whitelist = false;
+	    entity-broadcast-range-percentage = 100;
+	    gamemode = "creative";
+	    generate-structures = false;
+	    hardcore = true;
+	    level-name = "test1";
+	    log-ips = true;
+	    max-players = 20;
+	    motd = "It works!";
+	    server-port = 25565;
+	    snooper-enabled = false;
+	    spawn-monsters = false;
+	    spawn-npcs = false;
+	    white-list = true;
+          };
+	};
+      };
+    };
+
     samba = {
       enable = true;
       securityType = "user";
