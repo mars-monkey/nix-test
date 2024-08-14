@@ -34,10 +34,10 @@
       ez = "eza --all --icons --long --git --header";
       z = ''
         cd() { 
-          if [ “$#” -eq 0 ]; then
-            command cd "/safe/data”
+          if [ "$#" -eq 0 ]; then
+            command cd "/safe/data"
           else
-            command z “$@“
+            command z "$@"
           fi
         }
       '';
