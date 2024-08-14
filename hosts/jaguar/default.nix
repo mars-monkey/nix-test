@@ -189,7 +189,7 @@
         test = {
 	  enable = true;
 	  package = pkgs.fabricServers.fabric-1_18_2;
-	  #jvmOpts = "-Xms4092M -Xmx4092M -XX:UseG1GC nogui";
+	  jvmOpts = "-Xms4092M -Xmx4092M -XX:UseG1GC nogui";
 
 	  serverProperties = {
 	    allow-nether = false;
