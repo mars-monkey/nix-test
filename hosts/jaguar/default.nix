@@ -4,6 +4,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.impermanence.nixosModules.impermanence
+    inputs.nix-minecraft.nixosModules.minecraft-servers
     ./networking.nix
     ./gnome.nix
   ];
@@ -28,7 +29,7 @@
 
       postDeviceCommands = lib.mkAfter ''
         zfs rollback -r pool/root@blank
-        zfs rollback -r pool/home@blank
+        zfs rollback -r pool/home@blank_new
       '';
     };
 
@@ -104,6 +105,10 @@
     hostPlatform.system = "x86_64-linux";
 
     config.allowUnfree = true;
+
+    overlays = [
+      inputs.nix-minecraft.overlay
+    ];
   };
 
   system.stateVersion = "24.05";
@@ -112,6 +117,7 @@
     hostName = "jaguar";
     hostId = "8425e349";
     nameservers = ["1.1.1.3" "1.0.0.3"];
+    wireless.iwd.enable = true;
 
     firewall = {
       enable = false;
@@ -174,9 +180,41 @@
     locate.enable = true;
     printing.enable = true;
     thermald.enable = true;
+    openssh.enable = true;
 
-    xserver.desktopManager.lxqt.enable = true;
+    minecraft-servers = {
+      enable = false;
+      eula = true;
+      #dataDir = "/safe/data/mc-servers";
 
+      servers = {
+        test = {
+	  enable = true;
+	  package = pkgs.fabricServers.fabric-1_18_2;
+	  #jvmOpts = "-Xms4092M -Xmx4092M -XX:UseG1GC nogui";
+
+	  serverProperties = {
+	    allow-nether = false;
+	    difficulty = "hard";
+	    enable-query = true;
+	    enforce-whitelist = false;
+	    entity-broadcast-range-percentage = 100;
+	    gamemode = "creative";
+	    generate-structures = false;
+	    hardcore = true;
+	    level-name = "test1";
+	    log-ips = true;
+	    max-players = 20;
+	    motd = "It works!";
+	    server-port = 25565;
+	    snooper-enabled = false;
+	    spawn-monsters = false;
+	    spawn-npcs = false;
+	    white-list = false;
+          };
+	};
+      };
+    };
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
@@ -220,6 +258,7 @@
 
   home-manager = {
     useGlobalPkgs = true;
+    useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
 
     users = {
@@ -235,6 +274,7 @@
       isNormalUser = true;
       extraGroups = [ "wheel" "netdev" "libvirtd" "video" ];
       hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
+      createHome = true;
     };
 
     users.mars-monkey-de = {
@@ -242,6 +282,10 @@
       extraGroups = [ "wheel" "netdev" "libvirtd" "video" ];
       hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
     };
+
+    users."root".openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5ibKzd+V2eR1vmvBAfSWcZmPB8zUYFMAN3FS6xY9ma"
+      ];
   };
 
   environment = {
@@ -262,7 +306,7 @@
         "/var/lib/bluetooth"
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
-        "/etc/NetworkManager/system-connections"
+	"/var/lib/iwd"
       ];
 
       files = [
@@ -272,6 +316,7 @@
       users.mars-monkey = {
         directories = [
 	  ".librewolf"
+	  "urmom/you"
         ];
 
 	files = [
@@ -294,4 +339,5 @@
     ];
   };
 }
+
 

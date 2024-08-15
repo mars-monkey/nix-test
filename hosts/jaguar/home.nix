@@ -30,8 +30,8 @@
       rb = "sudo nixos-rebuild switch --flake /safe/data/nix#jaguar && /safe/data/nix/git.sh";
       rbb = "sudo nixos-rebuild boot --flake /safe/data/nix#jaguar && /safe/data/nix/git.sh";
 
-      l = "eza --icons --git";
-      ez = "eza --all --icons --long --git --header";
+      l = "eza --all --icons --git";
+      ll = "eza --all --icons --long --git --header";
       zh = "z /safe/data";/*''
         z_custom() { 
           if [ "$#" -eq 0 ]; then
@@ -125,6 +125,7 @@
       speedtest-cli
       starship
       tealdeer
+      tmux
       trash-cli
       tree
       usbutils
@@ -342,7 +343,7 @@
       };
     };
 
-    git = {
+   git = {
       enable = true;
       userName = "mars-monkey";
       userEmail = "91227993+mars-monkey@users.noreply.github.com";
@@ -350,7 +351,7 @@
 
     gh = {
       settings = {
-        editor = "nvim";
+        editor = "vim";
       };
       
       gitCredentialHelper = {
