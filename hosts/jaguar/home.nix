@@ -81,7 +81,6 @@
       fish
       font-awesome
       fzf
-      gh
       gimp
       git
       go
