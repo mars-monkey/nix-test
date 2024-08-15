@@ -5,6 +5,7 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.impermanence.nixosModules.impermanence
     ./networking.nix
+    ./gnome.nix
   ];
 
   # Hyprlock PAM configuration
