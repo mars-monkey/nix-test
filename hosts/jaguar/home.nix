@@ -8,8 +8,6 @@
   ];
 
   home = {
-    username = "mars-monkey";
-    homeDirectory = "/home/mars-monkey";
     stateVersion = "24.05";
     
     shellAliases = {

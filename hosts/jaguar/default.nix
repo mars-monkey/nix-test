@@ -263,6 +263,7 @@
 
     users = {
       "mars-monkey" = import ./home.nix;
+      "mars-monkey-de" = import ./de.nix;
     };
   };
 
