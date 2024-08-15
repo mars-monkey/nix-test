@@ -314,17 +314,18 @@
         "/etc/machine-id"
       ];
 
-      users.mars-monkey = {
+      users."mars-monkey" = {
         directories = [
-	  ".librewolf"
+	        ".librewolf"
           ".config/gh"
           ".cache/tealdeer"
         ];
 
-	files = [
-	  ".bash_history"
-	];
+	      files = [
+	        ".bash_history"
+	      ];
       };
+      users."mars-monkey-de".home = "/home/mars-monkey-de"
     };
 
 
