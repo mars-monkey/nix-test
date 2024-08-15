@@ -177,27 +177,6 @@
 
     xserver.desktopManager.lxqt.enable = true;
 
-    samba = {
-      enable = true;
-      securityType = "user";
-      extraConfig = ''
-        guest account = nobody
-	mapt to guest = bad user
-      '';
-      shares = {
-        public = {
-	  path = "/DATA";
-	  browseable = "yes";
-	  "read only" = "no";
-	  "guest ok" = "yes";
-	};
-      };
-    };
-
-    samba-wsdd = {
-      enable = true;
-    };
-
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
