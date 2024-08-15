@@ -27,7 +27,7 @@
 
       postDeviceCommands = lib.mkAfter ''
         zfs rollback -r pool/root@blank
-        zfs rollback -r pool/home@blank_new
+        zfs rollback -r pool/home@blank
       '';
     };
 
@@ -340,7 +340,8 @@
       users.mars-monkey = {
         directories = [
 	  ".librewolf"
-	  "urmom/you"
+          ".config/gh"
+          ".cache/tealdeer"
         ];
 
 	files = [
