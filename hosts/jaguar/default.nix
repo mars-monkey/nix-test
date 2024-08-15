@@ -27,7 +27,7 @@
 
       postDeviceCommands = lib.mkAfter ''
         zfs rollback -r pool/root@blank
-        zfs rollback -r pool/home@blank
+        zfs rollback -r pool/home@blank_new
       '';
     };
 
@@ -298,6 +298,7 @@
       isNormalUser = true;
       extraGroups = [ "wheel" "netdev" "libvirtd" "video" ];
       hashedPassword = "$y$j9T$PPMehWHX4aaQ5oMN3igBV0$zXYtqyL4ez7knABEGRMIYTPk1YERI/aY/qOaxXXq1q5";
+      createHome = true;
     };
 
     users.mars-monkey-de = {
@@ -339,8 +340,7 @@
       users.mars-monkey = {
         directories = [
 	  ".librewolf"
-	  ".cache/tealdeer"
-	  ".local/share/zoxide"
+	  "urmom/you"
         ];
 
 	files = [
@@ -363,4 +363,5 @@
     ];
   };
 }
+
 
