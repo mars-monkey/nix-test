@@ -4,6 +4,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.impermanence.nixosModules.impermanence
+    ./networking.nix
   ];
 
   # Hyprlock PAM configuration
@@ -109,12 +110,10 @@
   networking = {
     hostName = "jaguar";
     hostId = "8425e349";
-    wireless.iwd.enable = true;
     nameservers = ["1.1.1.3" "1.0.0.3"];
 
     firewall = {
       enable = false;
-      logRefusedConnections = true;
     };
  };
 
@@ -228,7 +227,6 @@
   };
 
   users = {
-    groups.netdev = {};
     mutableUsers = false;
     #defaultUserShell = pkgs.zsh;
     
