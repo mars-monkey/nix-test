@@ -29,7 +29,7 @@
 
       postDeviceCommands = lib.mkAfter ''
         zfs rollback -r pool/root@blank
-        zfs rollback -r pool/home@blank_new
+        zfs rollback -r pool/home@blank
       '';
     };
 
@@ -183,7 +183,7 @@
     openssh.enable = true;
 
     minecraft-servers = {
-      enable = false;
+      enable = true;
       eula = true;
       #dataDir = "/safe/data/mc-servers";
 
@@ -317,7 +317,8 @@
       users.mars-monkey = {
         directories = [
 	  ".librewolf"
-	  "urmom/you"
+          ".config/gh"
+          ".cache/tealdeer"
         ];
 
 	files = [

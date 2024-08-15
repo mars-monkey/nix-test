@@ -44,6 +44,7 @@
    
     sessionVariables = {
       EDITOR = "nvim";
+      "_ZO_DATA_DIR" = "/safe/root/home/mars-monkey/.zoxide";
     };
     
     pointerCursor = {
