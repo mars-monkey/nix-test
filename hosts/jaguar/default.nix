@@ -5,6 +5,8 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.impermanence.nixosModules.impermanence
     inputs.nix-minecraft.nixosModules.minecraft-servers
+    ./networking.nix
+    ./gnome.nix
   ];
 
   # Hyprlock PAM configuration
@@ -119,7 +121,6 @@
 
     firewall = {
       enable = false;
-      logRefusedConnections = true;
     };
  };
 
@@ -181,8 +182,6 @@
     thermald.enable = true;
     openssh.enable = true;
 
-    xserver.desktopManager.lxqt.enable = true;
-
     minecraft-servers = {
       enable = false;
       eula = true;
@@ -216,28 +215,6 @@
 	};
       };
     };
-
-    samba = {
-      enable = true;
-      securityType = "user";
-      extraConfig = ''
-        guest account = nobody
-	mapt to guest = bad user
-      '';
-      shares = {
-        public = {
-	  path = "/DATA";
-	  browseable = "yes";
-	  "read only" = "no";
-	  "guest ok" = "yes";
-	};
-      };
-    };
-
-    samba-wsdd = {
-      enable = true;
-    };
-
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
@@ -290,7 +267,6 @@
   };
 
   users = {
-    groups.netdev = {};
     mutableUsers = false;
     #defaultUserShell = pkgs.zsh;
     
