@@ -184,7 +184,7 @@
     xserver.desktopManager.lxqt.enable = true;
 
     minecraft-servers = {
-      enable = false;
+      enable = true;
       eula = true;
       #dataDir = "/safe/data/mc-servers";
 
