@@ -351,7 +351,7 @@
 
     gh = {
       settings = {
-        editor = "nvim";
+        editor = "vim";
       };
       
       gitCredentialHelper = {
