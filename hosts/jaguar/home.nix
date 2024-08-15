@@ -343,7 +343,7 @@
       };
     };
 
-    /*git = {
+   git = {
       enable = true;
       userName = "mars-monkey";
       userEmail = "91227993+mars-monkey@users.noreply.github.com";
@@ -358,7 +358,7 @@
         enable = true;
         hosts = [ "github.com" ];
       };
-    };*/
+    };
     
     mangohud = {
       enable = true;
