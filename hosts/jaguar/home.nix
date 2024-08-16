@@ -347,8 +347,8 @@
       userName = "mars-monkey";
       userEmail = "91227993+mars-monkey@users.noreply.github.com";
       extraConfig = {
-        "credential \"https://github.com.helper\"".helper = "!/etc/profile/per-user/mars-monkey/bin/gh auth git-credential";
-        "credential \"https://gist.github.com.helper\"".helper = "!/etc/profile/per-user/mars-monkey/bin/gh auth git-credential";
+        "credential \"https://github.com\"".helper = "!/etc/profile/per-user/mars-monkey/bin/gh auth git-credential";
+        "credential \"https://gist.github.com\"".helper = "!/etc/profile/per-user/mars-monkey/bin/gh auth git-credential";
       }
     };
 
