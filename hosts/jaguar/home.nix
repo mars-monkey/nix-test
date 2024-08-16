@@ -8,8 +8,6 @@
   ];
 
   home = {
-    username = "mars-monkey";
-    homeDirectory = "/home/mars-monkey";
     stateVersion = "24.05";
     
     shellAliases = {
@@ -348,6 +346,10 @@
       enable = true;
       userName = "mars-monkey";
       userEmail = "91227993+mars-monkey@users.noreply.github.com";
+      extraConfig = {
+        "credential \"https://github.com.helper\"".helper = "!/etc/profile/per-user/mars-monkey/bin/gh auth git-credential";
+        "credential \"https://gist.github.com.helper\"".helper = "!/etc/profile/per-user/mars-monkey/bin/gh auth git-credential";
+      }
     };
 
     gh = {
