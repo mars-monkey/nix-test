@@ -15,7 +15,7 @@
       bt = "bluetoothctl power on && bluetoothctl remove 60:C5:E6:13:7A:63 && bluetoothctl scan on && sleep 2 && bluetoothctl pair 60:C5:E6:13:7A:63 && bluetoothctl connect 60:C5:E6:13:7A:63";
       cl = "clear";
       int = "ping -c 5 1.1.1.1";
-      mt = "sudo mount /dev/nvme0n1p2 /mnt";
+      mt = "sudo mkdir /mnt && mount /dev/nvme0n1p2 /mnt";
       pi = "ssh dietpi@192.168.100.5";
       pib = "ssh dietpi@192.168.100.5 -t ./start.sh";
       ts = "nix run nixpkgs#";
@@ -349,7 +349,7 @@
       extraConfig = {
         "credential \"https://github.com\"".helper = "!/etc/profile/per-user/mars-monkey/bin/gh auth git-credential";
         "credential \"https://gist.github.com\"".helper = "!/etc/profile/per-user/mars-monkey/bin/gh auth git-credential";
-      }
+      };
     };
 
     gh = {

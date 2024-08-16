@@ -325,7 +325,7 @@
 	        ".bash_history"
 	      ];
       };
-      users."mars-monkey-de".home = "/home/mars-monkey-de"
+      users."mars-monkey-de".home = "/home/mars-monkey-de";
     };
 
 
